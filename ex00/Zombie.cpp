@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   Zombie.cpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jdong <jdong@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2026/05/22 13:16:03 by jdong         #+#    #+#                 */
-/*   Updated: 2026/05/26 12:35:08 by jdong         ########   odam.nl         */
+/*   Created: 2026/05/20 18:34:59 by jdong         #+#    #+#                 */
+/*   Updated: 2026/05/21 15:30:38 by jdong         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include <string>
-#include <fstream>
-#include "replace.hpp"
+#include "Zombie.hpp"
+#include <iostream>
 
-int	main(int argc, char *argv[])
+Zombie::Zombie( std::string name )
+	: name(name)
+{}
+Zombie::~Zombie()
 {
-	std::string	line;
-	std::string repfile;
-	
-	if (argc != 4)
-	{
-		errorHandeling("wrong input: ");
-		std::cout << "./sed <filename> s1 s2" << std::endl;
-		return 1;
-	}
+	std::cout << RED << this->name << " has been destroyed!\n" << RESET << std::endl;
+}
 
-	if (!replace(argv))
-		return 1;
-
-	return 0;
+void	Zombie::announce( void )
+{
+	std::cout << GREEN << this->name << ": BraiiiiiiinnnzzzZ...\n" << RESET << std::endl;
 }

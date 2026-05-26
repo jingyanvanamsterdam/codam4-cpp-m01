@@ -5,30 +5,22 @@
 /*                                                     +:+                    */
 /*   By: jdong <jdong@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2026/05/22 13:16:03 by jdong         #+#    #+#                 */
-/*   Updated: 2026/05/26 12:35:08 by jdong         ########   odam.nl         */
+/*   Created: 2026/05/21 15:31:58 by jdong         #+#    #+#                 */
+/*   Updated: 2026/05/21 15:32:00 by jdong         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include <fstream>
-#include "replace.hpp"
+#include "Zombie.hpp"
 
-int	main(int argc, char *argv[])
+int	main(void)
 {
-	std::string	line;
-	std::string repfile;
+	Zombie* new_zombie = newZombie("Real Zombie");
 	
-	if (argc != 4)
-	{
-		errorHandeling("wrong input: ");
-		std::cout << "./sed <filename> s1 s2" << std::endl;
-		return 1;
-	}
+	new_zombie->announce();
 
-	if (!replace(argv))
-		return 1;
+	randomChump("Random Zombie");
+
+	delete new_zombie;
 
 	return 0;
 }

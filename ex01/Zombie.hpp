@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   Zombie.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jdong <jdong@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2026/05/22 13:16:03 by jdong         #+#    #+#                 */
-/*   Updated: 2026/05/26 12:35:08 by jdong         ########   odam.nl         */
+/*   Created: 2026/05/21 15:34:42 by jdong         #+#    #+#                 */
+/*   Updated: 2026/05/21 17:33:53 by jdong         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
+
 #include <string>
-#include <fstream>
-#include "replace.hpp"
 
-int	main(int argc, char *argv[])
+# define GREEN	"\033[32m"
+# define RED	"\033[31m"
+# define RESET	"\033[0m"
+
+class Zombie
 {
-	std::string	line;
-	std::string repfile;
+	public:
+		void	announce( void );
+		void	setName( std::string name);
+		
+		Zombie();
+		~Zombie();
 	
-	if (argc != 4)
-	{
-		errorHandeling("wrong input: ");
-		std::cout << "./sed <filename> s1 s2" << std::endl;
-		return 1;
-	}
+	private:
+		std::string	name;
+};
 
-	if (!replace(argv))
-		return 1;
+Zombie* zombieHorde( int N, std::string name);
 
-	return 0;
-}
+#endif

@@ -6,14 +6,16 @@
 #    By: jdong <jdong@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2026/05/20 18:34:22 by jdong         #+#    #+#                  #
-#    Updated: 2026/05/26 12:35:43 by jdong         ########   odam.nl          #
+#    Updated: 2026/05/21 15:23:00 by jdong         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = sed
+NAME = brain
 
-SRC = main.cpp replace.cpp
+HEADER = Zombie.hpp
+
+SRC = Zombie.cpp main.cpp newZombie.cpp randomChump.cpp
 OBJ = $(SRC:%.cpp=%.o)
 
 FLAGS = -Wall -Wextra -Werror -std=c++98

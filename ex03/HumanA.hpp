@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   HumanA.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jdong <jdong@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2026/05/22 13:16:03 by jdong         #+#    #+#                 */
-/*   Updated: 2026/05/26 12:35:08 by jdong         ########   odam.nl         */
+/*   Created: 2026/05/21 17:59:27 by jdong         #+#    #+#                 */
+/*   Updated: 2026/05/22 13:02:40 by jdong         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include <fstream>
-#include "replace.hpp"
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
 
-int	main(int argc, char *argv[])
+#include "Weapon.hpp"
+
+class HumanA
 {
-	std::string	line;
-	std::string repfile;
+	public:
+		void	attack();
+		
+		HumanA(std::string name, Weapon& weapon);
+		~HumanA();
 	
-	if (argc != 4)
-	{
-		errorHandeling("wrong input: ");
-		std::cout << "./sed <filename> s1 s2" << std::endl;
-		return 1;
-	}
+	private:
+		std::string	name;
+		Weapon&		weapon;
+		
+		HumanA(void);
+};
 
-	if (!replace(argv))
-		return 1;
-
-	return 0;
-}
+#endif

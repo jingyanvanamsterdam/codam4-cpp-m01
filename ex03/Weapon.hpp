@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   Weapon.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jdong <jdong@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2026/05/22 13:16:03 by jdong         #+#    #+#                 */
-/*   Updated: 2026/05/26 12:35:08 by jdong         ########   odam.nl         */
+/*   Created: 2026/05/21 17:58:47 by jdong         #+#    #+#                 */
+/*   Updated: 2026/05/21 18:43:55 by jdong         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
+
 #include <string>
-#include <fstream>
-#include "replace.hpp"
 
-int	main(int argc, char *argv[])
+# define GREEN	"\033[32m"
+# define RED	"\033[31m"
+# define RESET	"\033[0m"
+
+
+class Weapon
 {
-	std::string	line;
-	std::string repfile;
-	
-	if (argc != 4)
-	{
-		errorHandeling("wrong input: ");
-		std::cout << "./sed <filename> s1 s2" << std::endl;
-		return 1;
-	}
+	public:
+		const std::string&	getType();
+		void				setType( std::string type);
 
-	if (!replace(argv))
-		return 1;
+		Weapon(std::string type);
+		~Weapon();
 
-	return 0;
-}
+	private:
+		std::string	type;
+};
+
+
+#endif
